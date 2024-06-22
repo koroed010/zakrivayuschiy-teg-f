@@ -186,7 +186,6 @@
   aspect-ratio: 1 / 1;
 }
 
-/*
 .filter-grey {
   filter: grayscale(0.8);
 }
@@ -219,7 +218,7 @@
   filter: brightness(1.8) saturate(1.2) contrast(1.2);
 }
 
-*/
+
 .card__image-watermark {
   position: absolute;
   inset-inline-end: 25px;
