@@ -1,6 +1,7 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, 
+чтобы в HTML некоторые классы были названы особым образом:
 ✦ theme-dark — класс тёмной темы
 ✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
@@ -10,11 +11,498 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+Кроме этого, не меняйте HTML переключателя тем. 
+Его разметка также гарантирует работу своего скрипта.
 
 */
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+
+  font-family: inter-variable, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--main-text-weight, 400), 'slnt' 0;
+  line-height: 21px;
+  text-align: left;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+
+  background-image: repeating-linear-gradient(
+      90deg,
+      var(--bg-strip),
+      var(--bg-strip) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      var(--bg-strip),
+      var(--bg-strip) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(var(--bg-grad-from) var(--bg-grad-start), var(--bg-grad-to));
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.area-width {
+  inline-size: var(
+    --main-width,
+    clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem)
+  );
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  block-size: var(
+    --header-height,
+    clamp(20.5rem, 19.6417rem + 3.662vw, 22.9375rem)
+  );
+
+  margin-inline: auto;
+  margin-block: 100px;
+  padding-block-start: 136px;
+  border: 2px solid var(--text-color, #000);
+  background-color: var(--bg-color, #fff);
+}
+
+.header-title {
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  margin-inline: auto;
+}
+
+.header-subtitle {
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+
+  margin-block-start: 20px;
+  margin-inline: auto;
+}
+
+.header__theme-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-block: auto;
+  margin-inline-start: calc((100% - 4.5em) / 2);
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.theme-menu__button {
+  position: relative;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+}
+
+.theme-menu__button:disabled {
+  transition: opacity 0.3s;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:hover {
+  transition: opacity 0.3s;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  transition: opacity 0.3s;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+  background-color: currentColor;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/*
+.cards {
+  max-inline-size: 700px;
+  min-block-size: 368px;
+} 
+*/
+
+.cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  margin-inline: auto;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--text-color);
+}
+
+.card__header {
+  font-family: inherit;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--main-head-weight, 700), 'slnt' 0;
+  line-height: 21.78px;
+  padding: 5px 10px;
+
+  border-block-end: 2px solid var(--text-color, #000);
+}
+
+.card__image-container {
+  position: relative;
+  display: flex;
+}
+
+.card__image {
+  display: flex;
+  inline-size: calc(var(--main-width) - 4px);
+  block-size: calc(var(--main-width) - 4px);
+  aspect-ratio: 1 / 1;
+}
+
+.filter-grey {
+  filter: grayscale(0.8);
+}
+
+.filter-hue {
+  filter: hue-rotate(305deg);
+}
+
+.filter-sepia {
+  filter: sepia(1);
+}
+
+.filter-co-brig {
+  filter: contrast(2) brightness(0.6);
+}
+
+.filter-invert {
+  filter: invert(1);
+}
+
+.filter-saturate {
+  filter: saturate(50%);
+}
+
+.filter-bright {
+  filter: brightness(0.8);
+}
+
+.filter-bri-sa-co {
+  filter: brightness(1.8) saturate(1.2) contrast(1.2);
+}
+
+.card__image-watermark {
+  position: absolute;
+  inset-inline-end: 25px;
+  inset-block-start: 25px;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+
+  text-shadow:
+    -1px 0 #fff,
+    0 1px #fff,
+    1px 0 #fff,
+    0 -1px #fff;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  z-index: 1;
+}
+
+@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+
+  .card__image-watermark {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 700px;
+  padding: 25px;
+}
+
+.card__footer {
+  margin-block: 27px 25px;
+}
+
+.card__buttons {
+  display: flex;
+  max-inline-size: 180px;
+  max-block-size: 38px;
+  align-self: flex-end;
+  gap: 6px;
+}
+
+.card__icon-button {
+  display: flex;
+  inline-size: 43px;
+  block-size: 38px;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-color: var(--text-color, #000);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.card__icon-button .contour {
+  transition: fill 0.1s linear;
+}
+
+.card__icon-button .core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.card__icon-button .main-body {
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:hover .core {
+  transition: fill 0.3s linear;
+  fill: var(--text-color, #000);
+}
+
+.card__icon-button:hover .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--text-color, #000);
+}
+
+.card__icon-button:active .core {
+  transition: fill 0.3s linear;
+  fill: var(--heart-sparks-color, #f00);
+}
+
+.card__icon-button:active .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--heart-sparks-color, #f00);
+}
+
+.like-icon.is-liked .core {
+  transition: fill 0.3s linear;
+  fill: var(--heart-sparks-color, #f00);
+}
+
+.like-icon.is-liked .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--heart-sparks-color, #f00);
+}
+
+.like-icon.is-liked .contour {
+  transition: fill 0.3s 0.06s linear;
+  fill: var(--heart-sparks-color, #f00);
+}
+
+/*
+.like-icon {
+  margin-block-start: 0;
+  margin-inline-start: 0;
+}
+*/
+
+.card__like-button {
+  display: flex;
+  position: relative;
+  inline-size: 130px;
+  block-size: 38px;
+  padding: 12.5px 35px;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--text-color, #000);
+  cursor: pointer;
+}
+
+.button__text {
+  display: inline-block;
+  position: relative;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 12.6px;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+  text-align: center;
+  z-index: 2;
+}
+
+.footer {
+  display: flex;
+  margin-inline: auto;
+  background-color: transparent;
+}
+
+.footer__button {
+  display: flex;
+  position: relative;
+  inline-size: clamp(19.125rem, 18.3988rem + 3.0986vw, 21.1875rem);
+  padding: 15px 5px 15px 19px;
+  margin-block: 50px 103px;
+  margin-inline: auto;
+  gap: 8px;
+  align-items: center;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 12.6px;
+  text-align: left;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--text-color, #000);
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.card__icon-button:has(.card__like-button:focus),
+.card__icon-button:focus {
+  outline: none;
+}
+
+.footer__button:focus,
+.card__like-button:focus {
+  outline: none;
+  transition: box-shadow 0.3s;
+  box-shadow: 2px 2px var(--text-color, #000);
+}
+
+.footer__button::after,
+.card__like-button::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+  background-color: currentColor;
+}
+
+.footer__button:hover::after,
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.footer__button:hover,
+.card__like-button:hover {
+  outline: none;
+  transition: box-shadow 0.3s;
+  box-shadow: 2px 2px var(--text-color, #000);
+}
+
+.floppy21 {
+  max-inline-size: 21px;
+  max-block-size: 21px;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.dialog-save {
+  display: grid;
+  grid-template-columns: 39px 1fr;
+  grid-template-rows: 1fr 38px;
+  grid-template-areas:
+    "floppy header"
+    "button button";
+  row-gap: 30px;
+  column-gap: 20px;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  min-block-size: 191px;
+  inline-size: var(
+    --dialog-width,
+    clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem)
+  );
+  padding: 30px
+    var(--dialog-inline-padding, clamp(2.5rem, 2.7201rem + -0.939vw, 1.875rem));
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+
+  color: var(--text-color, #000);
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--text-color, #000);
+}
+
+.dialog-save:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dialog-save::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.floppy39 {
+  grid-area: floppy;
+}
+
+.dialog__header {
+  grid-area: header;
+}
+
+.dialog__close-button {
+  grid-area: button;
+  inline-size: 100%;
+  block-size: 38px;
+  color: var(--text-color, #000);
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--text-color, #000);
+}
+
+@media (width <= 375px) {
+
+  :root {
+    --main-width: 100vw;
+    --dialog-width: 90vw;
+    --dialog-inline-padding: 40px;
+  }
+}
+
+@media (width <= 910px) {
+
+  .footer__button {
+    flex-direction: column;
+  }
 }
