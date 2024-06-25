@@ -64,21 +64,21 @@
 
   margin-inline: auto;
   margin-block: 100px;
-  padding-block-start: 136px;
+  padding-block-start: var(--header-padding-top, clamp(7.5rem, 7.1rem + 1.6vw, 8.5rem));
   border: 2px solid var(--text-color, #000);
   background-color: var(--bg-color, #fff);
 }
 
-.header-title {
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+.header-logo {
+  font-family: "PressStart2P", Impact, fantasy;
   text-transform: uppercase;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   margin-inline: auto;
 }
 
-.header-subtitle {
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+.header-title {
+  font-family: "PressStart2P", Impact, fantasy;
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -103,7 +103,7 @@
 
 .theme-menu__button {
   position: relative;
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   line-height: 14px;
   text-align: left;
@@ -221,9 +221,9 @@
 
 .card__image-watermark {
   position: absolute;
-  inset-inline-end: 25px;
+  inset-inline-end: var(--watermark-inset-right, clamp(0.8125rem, 0.5125rem + 1.2vw, 1.5625rem));
   inset-block-start: 25px;
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -238,7 +238,7 @@
   z-index: 1;
 }
 
-@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
 
   .card__image-watermark {
     -webkit-text-stroke: 1px #fff;
@@ -252,6 +252,7 @@
   flex-direction: column;
   max-inline-size: 700px;
   padding: 25px;
+  border-block-start: 2px solid var(--text-color, #000);
 }
 
 .card__footer {
@@ -346,6 +347,7 @@
   inline-size: 130px;
   block-size: 38px;
   padding: 12.5px 35px;
+  justify-content: center;
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--text-color, #000);
   cursor: pointer;
@@ -354,36 +356,33 @@
 .button__text {
   display: inline-block;
   position: relative;
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 12.6px;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
-  text-align: center;
+  
   z-index: 2;
+  text-transform: inherit;
 }
 
-.footer {
-  display: flex;
-  margin-inline: auto;
-  background-color: transparent;
-}
-
-.footer__button {
+.save__button {
   display: flex;
   position: relative;
   inline-size: clamp(19.125rem, 18.3988rem + 3.0986vw, 21.1875rem);
-  padding: 15px 5px 15px 19px;
+  min-inline-size: 306px;
+  padding-block: 15px;
+  
   margin-block: 50px 103px;
   margin-inline: auto;
   gap: 8px;
   align-items: center;
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  justify-content: center;
+  font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 12.6px;
-  text-align: left;
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--text-color, #000);
   box-shadow: none;
@@ -395,15 +394,15 @@
   outline: none;
 }
 
-.footer__button:focus,
-.card__like-button:focus {
+.save__button:focus,
+.card__like-button:focus,
+.dialog__close-button:focus {
   outline: none;
   transition: box-shadow 0.3s;
   box-shadow: 2px 2px var(--text-color, #000);
 }
 
-.footer__button::after,
-.card__like-button::after {
+.button-fill::after {
   content: "";
   position: absolute;
   inset-block-start: 0;
@@ -417,27 +416,35 @@
   background-color: currentColor;
 }
 
-.footer__button:hover::after,
-.card__like-button:hover::after {
+.button-fill:hover::after {
   transform: scaleX(1);
 }
 
-.footer__button:hover,
-.card__like-button:hover {
+.save__button:hover,
+.card__like-button:hover,
+.dialog__close-button:hover {
   outline: none;
   transition: box-shadow 0.3s;
   box-shadow: 2px 2px var(--text-color, #000);
 }
 
-.floppy21 {
-  max-inline-size: 21px;
-  max-block-size: 21px;
+.save-floppy {
+  max-inline-size: var(--save-floppy-size, 21px);
+  max-block-size: var(--save-floppy-size, 21px);
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
   z-index: 2;
 }
 
-.dialog-save {
+.floppy {
+  max-inline-size: 39px;
+  max-block-size: 39px;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+  z-index: 2;
+}
+
+.dialog-save[open] {
   display: grid;
   grid-template-columns: 39px 1fr;
   grid-template-rows: 1fr 38px;
@@ -454,13 +461,14 @@
     --dialog-width,
     clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem)
   );
-  padding: 30px
-    var(--dialog-inline-padding, clamp(2.5rem, 2.7201rem + -0.939vw, 1.875rem));
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  max-inline-size: 341px;
+  padding: 30px var(--dialog-inline-padding, clamp(30px, 44px - 1vw, 40px));
+
+  font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
-
+  text-transform: uppercase;
   color: var(--text-color, #000);
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--text-color, #000);
@@ -475,7 +483,12 @@
   background-color: rgb(0 0 0 / 0.75);
 }
 
-.floppy39 {
+.dialog-floppy {
+  min-inline-size: 100%;
+  min-block-size: 100%;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+  z-index: 2;
   grid-area: floppy;
 }
 
@@ -484,10 +497,12 @@
 }
 
 .dialog__close-button {
+  position: relative;
   grid-area: button;
   inline-size: 100%;
   block-size: 38px;
   color: var(--text-color, #000);
+  text-transform: uppercase;
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--text-color, #000);
 }
@@ -497,13 +512,21 @@
   :root {
     --main-width: 100vw;
     --dialog-width: 90vw;
-    --dialog-inline-padding: 40px;
+    
   }
 }
 
 @media (width <= 910px) {
 
-  .footer__button {
+  :root {
+    --save-floppy-size: 28px;
+    /*
+    --dialog-inline-padding: 40px;
+    */
+  }
+
+  .save__button {
     flex-direction: column;
+    
   }
 }

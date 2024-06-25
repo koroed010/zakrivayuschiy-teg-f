@@ -6,8 +6,6 @@
 */
 
 :root.theme-dark {
-
-  .page {
     
     --bg-color: #000;
     --text-color: #00cc14;
@@ -24,12 +22,11 @@
     --bg-grad-start: 0%;
     --bg-grad-from: var(--text-color, #00cc14);
     --bg-grad-to: #004306;
-  }
+  
 }
 
 :root.theme-light {
 
-  .page {
     --bg-color: #fff;
     --text-color: #000;
 
@@ -44,12 +41,12 @@
     --bg-grad-start: 0.01%;
     --bg-grad-from: #e7e7e7;
     --bg-grad-to: #1a1a1a;
-  }
+ 
 }
 
 @media (prefers-color-scheme: dark) {
 
-  .page {
+  :root {
     --bg-color: #000;
     --text-color: #00cc14;
 

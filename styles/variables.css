@@ -13,7 +13,7 @@
   --heart-sparks-color: #f00;
 
   --dialog-width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  --dialog-inline-padding: clamp(2.5rem, 2.7201rem + -0.939vw, 1.875rem);
+  --dialog-inline-padding: clamp(30px, 44px - 1vw, 40px);
 
   --main-font: inter-variable;
   --accent-font: "PressStart2P";
@@ -22,6 +22,11 @@
 
   --main-width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   --header-hight: clamp(20.5rem, 19.6417rem + 3.662vw, 22.9375rem);
+  --header-padding-top: clamp(7.5rem, 7.1rem + 1.6vw, 8.5rem);
+
+  --watermark-inset-right: clamp(0.8125rem, 0.5125rem + 1.2vw, 1.5625rem);
+
+  --save-floppy-size: 21px;
 
   --bg-strip: #d3d3d3;
   --bg-grad-start: 0.01%;
