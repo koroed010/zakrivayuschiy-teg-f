@@ -22,7 +22,9 @@
 
   font-family: inter-variable, Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-variation-settings: 'wght' var(--main-text-weight, 400), 'slnt' 0;
+  font-variation-settings:
+    "wght" var(--main-text-weight, 400),
+    "slnt" 0;
   line-height: 21px;
   text-align: left;
   background-color: var(--bg-color, #fff);
@@ -64,7 +66,10 @@
 
   margin-inline: auto;
   margin-block: 100px;
-  padding-block-start: var(--header-padding-top, clamp(7.5rem, 7.1rem + 1.6vw, 8.5rem));
+  padding-block-start: var(
+    --header-padding-top,
+    clamp(7.5rem, 7.1rem + 1.6vw, 8.5rem)
+  );
   border: 2px solid var(--text-color, #000);
   background-color: var(--bg-color, #fff);
 }
@@ -167,7 +172,9 @@
 .card__header {
   font-family: inherit;
   font-size: 18px;
-  font-variation-settings: 'wght' var(--main-head-weight, 700), 'slnt' 0;
+  font-variation-settings:
+    "wght" var(--main-head-weight, 700),
+    "slnt" 0;
   line-height: 21.78px;
   padding: 5px 10px;
 
@@ -218,10 +225,12 @@
   filter: brightness(1.8) saturate(1.2) contrast(1.2);
 }
 
-
 .card__image-watermark {
   position: absolute;
-  inset-inline-end: var(--watermark-inset-right, clamp(0.8125rem, 0.5125rem + 1.2vw, 1.5625rem));
+  inset-inline-end: var(
+    --watermark-inset-right,
+    clamp(0.8125rem, 0.5125rem + 1.2vw, 1.5625rem)
+  );
   inset-block-start: 25px;
   font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
@@ -362,7 +371,7 @@
   line-height: 12.6px;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
-  
+
   z-index: 2;
   text-transform: inherit;
 }
@@ -373,7 +382,7 @@
   inline-size: clamp(19.125rem, 18.3988rem + 3.0986vw, 21.1875rem);
   min-inline-size: 306px;
   padding-block: 15px;
-  
+
   margin-block: 50px 103px;
   margin-inline: auto;
   gap: 8px;
@@ -496,9 +505,20 @@
   grid-area: header;
 }
 
+.dialog__close-form {
+  
+  grid-area: button;
+  inline-size: 100%;
+  block-size: 38px;
+  
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 .dialog__close-button {
   position: relative;
-  grid-area: button;
+  
   inline-size: 100%;
   block-size: 38px;
   color: var(--text-color, #000);
@@ -512,7 +532,6 @@
   :root {
     --main-width: 100vw;
     --dialog-width: 90vw;
-    
   }
 }
 
@@ -527,6 +546,5 @@
 
   .save__button {
     flex-direction: column;
-    
   }
 }

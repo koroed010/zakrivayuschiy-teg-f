@@ -6,46 +6,42 @@
 */
 
 :root.theme-dark {
-    
-    --bg-color: #000;
-    --text-color: #00cc14;
+  --bg-color: #000;
+  --text-color: #00cc14;
 
-    --button-text-color: var(--text-color, #00cc14);
-    --heart-contour-color: var(--text-color, #00cc14);
-    --heart-body-color: var(--bg-color, #000);
-    --heart-core-color: var(--bg-color, #000);
+  --button-text-color: var(--text-color, #00cc14);
+  --heart-contour-color: var(--text-color, #00cc14);
+  --heart-body-color: var(--bg-color, #000);
+  --heart-core-color: var(--bg-color, #000);
 
-    --main-text-weight: 465;
-    --main-head-weight: 785;
+  --main-text-weight: 465;
+  --main-head-weight: 785;
 
-    --bg-strip: var(--bg-color, #000);
-    --bg-grad-start: 0%;
-    --bg-grad-from: var(--text-color, #00cc14);
-    --bg-grad-to: #004306;
-  
+  --bg-strip: var(--bg-color, #000);
+  --bg-grad-start: 0%;
+  --bg-grad-from: var(--text-color, #00cc14);
+  --bg-grad-to: #004306;
 }
 
 :root.theme-light {
+  --bg-color: #fff;
+  --text-color: #000;
 
-    --bg-color: #fff;
-    --text-color: #000;
+  --button-text-color: var(--bg-color, #fff);
+  --heart-body-color: var(--bg-color, #fff);
+  --heart-core-color: var(--bg-color, #fff);
 
-    --button-text-color: var(--bg-color, #fff);
-    --heart-body-color: var(--bg-color, #fff);
-    --heart-core-color: var(--bg-color, #fff);
+  --main-text-weight: 400;
+  --main-head-weight: 700;
 
-    --main-text-weight: 400;
-    --main-head-weight: 700;
-
-    --bg-strip: #d3d3d3;
-    --bg-grad-start: 0.01%;
-    --bg-grad-from: #e7e7e7;
-    --bg-grad-to: #1a1a1a;
- 
+  --bg-strip: #d3d3d3;
+  --bg-grad-start: 0.01%;
+  --bg-grad-from: #e7e7e7;
+  --bg-grad-to: #1a1a1a;
 }
 
 @media (prefers-color-scheme: dark) {
-
+  
   :root {
     --bg-color: #000;
     --text-color: #00cc14;

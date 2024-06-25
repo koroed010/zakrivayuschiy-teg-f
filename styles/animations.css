@@ -14,7 +14,7 @@
 */
 
 @keyframes mooving-arrow {
-  
+
   0% {
     inset-inline-start: -1em;
   }
@@ -36,7 +36,7 @@
 }
 
 @keyframes is-liked-sparks {
-
+  
   from {
     opacity: 0;
   }
