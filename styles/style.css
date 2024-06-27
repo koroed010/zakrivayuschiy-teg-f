@@ -238,23 +238,25 @@
   line-height: 14px;
 
   text-shadow:
-    -1px 0 #fff,
-    0 1px #fff,
-    1px 0 #fff,
-    0 -1px #fff;
+    -1px 0 var(--watermark-stroke-color, #fff),
+    0 1px var(--watermark-stroke-color, #fff),
+    1px 0 var(--watermark-stroke-color, #fff),
+    0 -1px var(--watermark-stroke-color, #fff);
   opacity: 0.5;
   mix-blend-mode: hard-light;
   z-index: 1;
 }
 
+
 @supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
 
   .card__image-watermark {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--watermark-stroke-color, #fff);
+    text-stroke: 1px var(--watermark-stroke-color, #fff);
     text-shadow: none;
   }
 }
+
 
 .card__content {
   display: flex;
@@ -438,16 +440,8 @@
 }
 
 .save-floppy {
-  max-inline-size: var(--save-floppy-size, 21px);
-  max-block-size: var(--save-floppy-size, 21px);
-  color: var(--button-text-color, #fff);
-  mix-blend-mode: difference;
-  z-index: 2;
-}
-
-.floppy {
-  max-inline-size: 39px;
-  max-block-size: 39px;
+  inline-size: var(--save-floppy-size, 21px);
+  block-size: var(--save-floppy-size, 21px);
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
   z-index: 2;
@@ -468,11 +462,9 @@
   min-block-size: 191px;
   inline-size: var(
     --dialog-width,
-    clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem)
+    clamp(341px, 337px + 1.2vw, 353px)
   );
-  max-inline-size: 341px;
   padding: 30px var(--dialog-inline-padding, clamp(30px, 44px - 1vw, 40px));
-
   font-family: "PressStart2P", Impact, fantasy;
   font-size: 14px;
   font-weight: 400;
@@ -493,8 +485,8 @@
 }
 
 .dialog-floppy {
-  min-inline-size: 100%;
-  min-block-size: 100%;
+  max-inline-size: 39px;
+  max-block-size: 39px;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
   z-index: 2;
@@ -527,7 +519,7 @@
   border: 2px solid var(--text-color, #000);
 }
 
-@media (width <= 375px) {
+@media (width < 375px) {
 
   :root {
     --main-width: 100vw;

@@ -9,6 +9,8 @@
   --bg-color: #000;
   --text-color: #00cc14;
 
+  --watermark-stroke-color: var(--bg-color, #000);
+
   --button-text-color: var(--text-color, #00cc14);
   --heart-contour-color: var(--text-color, #00cc14);
   --heart-body-color: var(--bg-color, #000);
@@ -26,6 +28,8 @@
 :root.theme-light {
   --bg-color: #fff;
   --text-color: #000;
+
+  --watermark-stroke-color: var(--bg-color, #fff);
 
   --button-text-color: var(--bg-color, #fff);
   --heart-body-color: var(--bg-color, #fff);
@@ -45,6 +49,8 @@
   :root {
     --bg-color: #000;
     --text-color: #00cc14;
+
+    --watermark-stroke-color: var(--bg-color, #000);
 
     --button-text-color: var(--text-color, #00cc14);
     --heart-contour-color: var(--text-color, #00cc14);

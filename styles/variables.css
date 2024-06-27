@@ -5,6 +5,8 @@
   --bg-color: #fff;
   --text-color: #000;
 
+  --watermark-stroke-color: var(--bg-color, #fff);
+
   --button-text-color: #fff;
 
   --heart-contour-color: var(--text-color);
@@ -12,7 +14,7 @@
   --heart-core-color: #fff;
   --heart-sparks-color: #f00;
 
-  --dialog-width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  --dialog-width: clamp(341px, 337px + 1.2vw, 353px);
   --dialog-inline-padding: clamp(30px, 44px - 1vw, 40px);
 
   --main-font: inter-variable;

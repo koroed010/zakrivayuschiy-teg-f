@@ -526,8 +526,7 @@
               alt="голова бронзового льва на фоне ночи, покрытая крупным инеем."
             />
             <span class="card__image-watermark"
-              >&lt;Растерянность - LEVEL 10&gt;</span
-            >
+              >&lt;Растерянность - LEVEL 10&gt;</span>
           </div>
           <div class="card__content">
             <p class="card__text">
@@ -594,12 +593,7 @@
         onclick="window['dialog-save'].showModal();"
         aria-controls="dialog-save"
       >
-        <svg
-          class="save-floppy"
-          viewBox="0 0 39 39"
-          width="var(--save-floppy-size)"
-          height="var(--save-floppy-size)"
-        >
+        <svg class="save-floppy" viewBox="0 0 39 39">
           <use href="svg/floppy.svg#floppy"></use>
         </svg>
 
@@ -607,10 +601,10 @@
       </button>
 
       <dialog id="dialog-save" class="dialog-save">
-        <svg class="dialog-floppy" viewBox="0 0 39 39" width="39" height="39">
+        <svg class="dialog-floppy" viewBox="0 0 39 39">
           <use href="svg/floppy.svg#floppy"></use>
         </svg>
-        <p class="dialog__header">вставьте дискету, чтобы продолжить</p>
+        <p class="dialog__header">вставьте дискету,&nbsp;чтобы продолжить</p>
         <form method="dialog" class="dialog__close-form ">
           <button
             class="dialog__close-button button-fill"
@@ -627,6 +621,12 @@
 </html>
 
 <!--
+
+width="var(--save-floppy-size)"
+          height="var(--save-floppy-size)"
+
+
+
 <svg xmlns="http://www.w3.org/2000/svg">
   <symbol id="floppy"
      fill="var(--button-text-color)"
